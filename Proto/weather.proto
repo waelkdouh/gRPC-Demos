@@ -8,8 +8,11 @@ option csharp_namespace = "WeatherForecast";
 package WeatherForecast;
 
 service WeatherForecasts {
+  // Unary
   rpc GetWeather (google.protobuf.Empty) returns (WeatherReply);
+  // Server streaming
   rpc GetWeatherStream (google.protobuf.Empty) returns (stream WeatherData);
+  // Bi-directional streaming
   rpc GetTownWeatherStream (stream TownWeatherRequest) returns (stream TownWeatherForecast);
 }
 
